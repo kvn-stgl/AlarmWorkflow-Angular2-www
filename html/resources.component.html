@@ -1,0 +1,6 @@
+<!--<h1>Fahrzeuge:</h1>-->
+<ul>
+    <li *ngFor="let resource of resources" [ngClass]="{active: resource.Type, inactive: !resource.Type}" class="{{operation.getCssClass()}}">
+        <h2>{{resource.Emk.DisplayName}}</h2>
+    </li>
+</ul>

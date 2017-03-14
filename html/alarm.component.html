@@ -1,0 +1,31 @@
+<div id="alarm">
+    <header class="container-fluid">
+        <div>
+            <img src="images/FFW-Logo.svg" class="img-responsive">
+            <!-- {{fdName}} -->
+        </div>
+        <div class="time alarm">
+            <h2>
+                <aw-alarm-stopwatch [operation]="operation"></aw-alarm-stopwatch>
+            </h2>
+        </div>
+    </header>
+
+    <aw-alarm-info [operation]="operation"></aw-alarm-info>
+
+    <div class="clearfix"></div>
+
+    <div class="content maps container-fluid" *ngIf="operation">
+        <div class="row">
+            <div class="col-md-6 map">
+                <aw-alarm-gmap [operation]="operation"></aw-alarm-gmap>
+            </div>
+            <div class="col-md-6 map">
+                <aw-alarm-osm [operation]="operation"></aw-alarm-osm>
+            </div>
+        </div>
+    </div>
+
+    <aw-alarm-resources [operation]="operation"></aw-alarm-resources>
+</div>
+<!-- <button (click)="goBack()">View Details</button> -->

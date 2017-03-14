@@ -1,0 +1,12 @@
+<div *ngIf="warning" class="alert alert-danger warnLevel{{warning.Level}}" role="alert">
+    <div class="media">
+        <div class="media-left media-middle">
+            <img class="media-object" id="background" src="/images/warnings/{{warning.Image}}" alt="...">
+            <img class="media-object" id="icon" src="/images/warnings/level{{warning.Level}}.png" alt="...">
+        </div>
+        <div class="media-body">
+            <h4 class="media-heading">{{warning.Headline}}</h4>
+            <p>Gültig von {{warning.Start | date:"dd.MM, HH:mm"}} Uhr bis {{warning.End | date:"dd.MM, HH:mm"}} Uhr
+        </div>
+    </div>
+</div>

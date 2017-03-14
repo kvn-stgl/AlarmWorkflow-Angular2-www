@@ -1,0 +1,29 @@
+h1 {
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin: 0;
+    padding: 13px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    display: table;
+    width: 100%;
+}
+
+li {
+    display: table-cell;
+    text-align: center;
+}
+
+li.active {
+    background-image: url(../images/checker-pattern.png);
+    color: #fff;
+}
+
+li.inactive {
+    background: none;
+}

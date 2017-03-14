@@ -1,0 +1,52 @@
+.media-object {
+    max-width: 60px;
+}
+
+.media-object#background {
+    position: absolute;
+}
+
+h4 {
+    margin-top: 5px;
+    font-size: 24px;
+}
+
+.media-body {
+    font-size: 16px;
+}
+
+.warnLevel1,
+.warnLevel2,
+.warnLevel3,
+.warnLevel4,
+.warnLevel5,
+.warnLevel10,
+.warnLevel20 {
+    border-style: solid;
+    border-width: 3px;
+}
+
+.warnLevel1,
+.warnLevel2 {
+    border-color: #ffeb3b;
+}
+
+.warnLevel3 {
+    border-color: #fb8c00;
+}
+
+.warnLevel4 {
+    border-color: #e53935;
+}
+
+.warnLevel5 {
+    border-color: #880e4f;
+}
+
+.warnLevel10 {
+    border-color: #cc99ff;
+}
+
+.warnLevel20 {
+    border-color: #FE68FE;
+}

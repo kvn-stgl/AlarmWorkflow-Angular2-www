@@ -1,0 +1,43 @@
+body {
+    overflow: hidden;
+}
+
+header {
+    padding: 15px;
+    width: 100%;
+    border-top: solid 4px #ec0928;
+}
+
+header img {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.trailer {
+    padding-top: 35px;
+    padding-bottom: 45px;
+    margin-bottom: 35px;
+    color: #fff;
+    background: #555555 url(../images/checker-pattern.png);
+    text-align: center;
+}
+
+.trailer h1 {
+    font-size: 125px;
+}
+
+.trailer h2 {
+    font-size: 45px;
+}
+
+.brand {
+    background-color: #db0505;
+}
+
+.thl {
+    background-color: #0824b5;
+}
+
+.gefahrgut {
+    background-color: #f5831f;
+}

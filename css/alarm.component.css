@@ -1,0 +1,31 @@
+.time.alarm {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+}
+
+#alarm {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height: 100vH;
+}
+
+.col-md-6 {
+    padding: 0px;
+}
+
+.maps {
+    height: 100%;
+    width: 100vW;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.maps>div,
+.maps>div>div {
+    height: 100%;
+}

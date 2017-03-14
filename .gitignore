@@ -1,0 +1,11 @@
+node_modules/
+dist
+app/**/*.js
+app/**/*.map
+app/**/*.ngfactory.js
+.tmp
+debug.log
+npm-debug.log
+*.ngfactory.ts
+.idea/
+.vscode/

@@ -1,0 +1,8 @@
+<h1>Veranstaltungen</h1>
+<table class="table table-striped">
+  <tr *ngFor="let entry of entries">
+    <td style="width: 160px;">{{entry.Start | date:"dd MMM."}}</td>
+    <td>{{entry.Start | date:"HH:mm"}}</td>
+    <td>{{entry.Summary}}</td>
+  </tr>
+</table>

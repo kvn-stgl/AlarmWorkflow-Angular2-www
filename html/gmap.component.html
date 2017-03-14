@@ -1,0 +1,8 @@
+<div *ngIf="destinationCoords" style="height: 100%;">
+    <sebm-google-map [latitude]="destinationCoords.lat" 
+                     [longitude]="destinationCoords.lng"
+                     [zoom] = "zoom" [zoomControl]="false" [streetViewControl]="false" [styles]="type">
+        <sebm-google-map-marker *ngIf="!originCoords" [latitude]="destinationCoords.lat" [longitude]="destinationCoords.lng"></sebm-google-map-marker>
+        <sebm-google-map-directions *ngIf="originCoords && direction" [origin]="originCoords" [destination]="destinationCoords"></sebm-google-map-directions>
+    </sebm-google-map>
+</div>

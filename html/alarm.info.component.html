@@ -1,0 +1,12 @@
+<div class="trailer alarm container-fluid {{operation.getCssClass()}}" *ngIf="operation">
+    <div class="row">
+        <div class="col-md-6">
+            <h3>{{operation.keywords.keyword}}</h3>
+            <h4>{{operation.comment}}</h4>
+        </div>
+        <div class="col-md-6">
+            <h3>Stichwort: {{operation.keywords.emergencyKeyword}}</h3>
+            <h4>{{operation.einsatzort.street}} {{operation.einsatzort.streetNumber}}, {{operation.einsatzort.city}}</h4>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+    <title>OpenFireSource</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/ring.css">
+    <link rel="stylesheet" href="node_modules/leaflet/dist/leaflet.css">
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/leaflet/dist/leaflet.js"></script>
+
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="assets/date.format.js"></script>
+    <script src="assets/jintervals.js"></script>
+    <script src="assets/jquery.signalR-2.2.1.js"></script>
+    <script src="assets/jquery.simpleWeather.js"></script>
+    <script src="assets/jquery.stopwatch.js"></script>
+    <script src="assets/jquery.time.js"></script>
+
+    <script src="assets/systemjs.config.js"></script>
+
+    <script>
+        var devUrl = "http://localhost:9000";
+    </script>
+</head>
+
+<body>
+    <p class="bg-danger" id="errorLabel" style="display: none;"></p>
+
+    <my-app>
+        <div class="boot-load">
+            <h1>Loading AppComponent content ...</h1>
+            <div class='uil-ring-css' style='transform:scale(1.2);'>
+                <div></div>
+            </div>
+        </div>
+    </my-app>
+
+    <script>
+        if (!devUrl) {
+            var devUrl = "";
+        }
+
+        //Include SingalR
+        var script = document.createElement('script');
+        script.src = devUrl + "/signalr/hubs";
+        document.getElementsByTagName('head')[0].appendChild(script);
+
+        System.import('app').catch(function(err) {
+            console.error(err);
+        });
+    </script>
+</body>
+
+</html>

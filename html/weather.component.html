@@ -1,0 +1,14 @@
+<h1>Wetter:</h1>
+<div class="row">
+    <div class="col-md-4" *ngFor="let entry of forecast">
+        <h3>{{entry.date.epoch * 1000 | date:"EEEE"}}</h3>
+
+        <i class="wi wi-wu-{{entry.icon}}"></i>
+        <h3>{{entry.conditions}}</h3>
+        <h3><span class="text-primary">{{entry.low.celsius}}</span> /
+            <span class="text-danger">{{entry.high.celsius}}</span> °C</h3>
+    </div>
+    <div class="col-md-12">
+        <aw-warnings></aw-warnings>
+    </div>
+</div>
