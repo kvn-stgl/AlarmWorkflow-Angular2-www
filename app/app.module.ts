@@ -38,7 +38,7 @@ import { SignalrWindow } from './signalr';
 (window as SignalrWindow).$.connection.hub.url = devUrl + '/signalr';
 
 function initConfig(config: AppConfig) {
- return () => config.load()
+ return () => config.load();
 }
 
 @NgModule({

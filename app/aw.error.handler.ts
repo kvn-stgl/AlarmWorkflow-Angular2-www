@@ -1,5 +1,5 @@
 import { ErrorHandler, Injectable } from '@angular/core';
-import { Http, Response } from "@angular/http";
+import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class AwErrorHandler extends ErrorHandler {
@@ -11,11 +11,11 @@ export class AwErrorHandler extends ErrorHandler {
 
   handleError(error: any) {
       let message = this.extractMessage(error);
-      //Send HTTP Request sometime .. 
+      // Send HTTP Request sometime ..
 
-      //Show User
-      let e = $("#errorLabel");
-      if(e) {
+      // Show User
+      let e = $('#errorLabel');
+      if (e) {
           e.html(`JavaScript Error. Maybe the server is down. Please reload the page. <br />
           Message: ${message}`);
           e.show();

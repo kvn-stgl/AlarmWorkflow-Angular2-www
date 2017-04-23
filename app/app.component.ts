@@ -1,7 +1,7 @@
-import {Component, OnInit, Input} from "@angular/core";  
+import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
-import { OperationService } from "./operation.service";
+import { OperationService } from './operation.service';
 import { Operation } from './operation';
 
 @Component({
@@ -11,27 +11,27 @@ import { Operation } from './operation';
 export class AppComponent implements OnInit {
 
   constructor(private operationService: OperationService, private router: Router) {
-    
+
     this.operationService.error$.subscribe(
-      (error: any) => { 
-        console.warn(error); 
+      (error: any) => {
+        console.warn(error);
       },
-      (error: any) => { 
-        console.error("errors$ error", error); throw error; 
+      (error: any) => {
+        console.error('errors$ error', error); throw error;
       }
     );
 
     // Wire up a handler for the starting$ observable to log the
     //  success/fail result
     this.operationService.starting$.subscribe(
-     () => { console.log("signalr service has been started"); },
-     () => { console.warn("signalr service failed to start!"); }
+     () => { console.log('signalr service has been started'); },
+     () => { console.warn('signalr service failed to start!'); }
     );
 
     let signalrClient = this.operationService.getHubProxy().client;
 
     signalrClient.settingsChanged = () => {
-      console.log("Settings Changed. Reload Page.");
+      console.log('Settings Changed. Reload Page.');
       location.reload();
     }
 
