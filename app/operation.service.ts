@@ -1,22 +1,22 @@
-import { Injectable, Inject } from "@angular/core";  
-import { Subject } from "rxjs/Subject";  
-import { Observable } from "rxjs/Observable";
+import { Injectable, Inject } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
 import { Headers, Http } from '@angular/http';
 
-import { SignalrWindow } from "./signalr";
+import { SignalrWindow } from './signalr';
 import { Operation } from './operation';
 
 @Injectable()
 export class OperationService {
     /**
-     * starting$ is an observable available to know if the signalr 
+     * starting$ is an observable available to know if the signalr
      * connection is ready or not. On a successful connection this
      * stream will emit a value.
      */
     starting$: Observable<any>;
-    
+
     /**
-     * error$ provides a stream of any error messages that occur on the 
+     * error$ provides a stream of any error messages that occur on the
      * SignalR connection
      */
     error$: Observable<string>;
@@ -35,7 +35,7 @@ export class OperationService {
     private receiveSubject = new Subject<any>();
     private resourcesSubject = new Subject<any>();
 
-    // These are used to track the internal SignalR state 
+    // These are used to track the internal SignalR state
     private hubProxy: any;
     private hub: any;
 
@@ -51,10 +51,10 @@ export class OperationService {
         this.receive = this.receiveSubject.asObservable();
         this.reset = this.resetSubject.asObservable();
         this.resources = this.resourcesSubject.asObservable();
-        
-        this.hubProxy.client.resetOperation = () => { 
+
+        this.hubProxy.client.resetOperation = () => {
             this.resetOperation();
-            this.resetSubject.next() 
+            this.resetSubject.next();
         };
 
         this.hubProxy.client.receiveOperation = (operation:any) => {
@@ -71,6 +71,22 @@ export class OperationService {
             // Push the error on our subject
             this.errorSubject.next(error);
         });
+
+        this.hub.reconnecting(() => {
+            $('#connectionLabel').show();
+        });
+
+        this.hub.reconnected(() => {
+              $('#connectionLabel').hide();
+        });
+
+        this.hub.disconnected(() => {
+            $('#connectionLabel').show();
+            setTimeout(() => {
+              $('#connectionLabel').hide();
+              this.start();
+            }, 10000); // Restart connection after 10 seconds.
+        });
     }
 
     /**
@@ -83,13 +99,13 @@ export class OperationService {
     /**
      * Get the operation.
      */
-    public getOperation(id:number):Promise<Operation> {
-        if(this.operation && this.operation.id == id) {
+    public getOperation(id: number): Promise<Operation> {
+        if (this.operation && this.operation.id === id) {
             return new Promise((resolve, reject) => {
                 resolve(this.operation);
             });
         } else {
-            return this.http.get(devUrl + "/api/operation/" + id)
+            return this.http.get(devUrl + '/api/operation/' + id)
                 .toPromise()
                 .then(response => Operation.fromJS(response.json()))
                 .catch(this.handleError);
@@ -109,7 +125,7 @@ export class OperationService {
     }
 
     /**
-     * Start the SignalR connection. The starting$ stream will emit an 
+     * Start the SignalR connection. The starting$ stream will emit an
      * event if the connection is established, otherwise it will emit an
      * error.
      */

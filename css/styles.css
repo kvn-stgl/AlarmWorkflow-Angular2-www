@@ -8,6 +8,11 @@ header {
     border-top: solid 4px #ec0928;
 }
 
+.bg-danger {
+    padding: 10px;
+    font-size: 18px;
+}
+
 header img {
     margin-left: auto;
     margin-right: auto;

@@ -9,13 +9,13 @@ import { AgmCoreModule } from 'angular2-google-maps/core';
 import { DirectionsMapDirective } from './alarm/directions.map.directive';
 
 import { AwErrorHandler } from './aw.error.handler';
-import { AppConfig } from './app.config'
+import { AppConfig } from './app.config';
 import { AppComponent }  from './app.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
 import { ClockComponent }   from './dashboard/clock.component';
 import { CalendarComponent }   from './dashboard/calendar.component';
-import { WeatherComponent } from './dashboard/weather.component'
-import { WarningsComponent } from './dashboard/warnings.component'
+import { WeatherComponent } from './dashboard/weather.component';
+import { WarningsComponent } from './dashboard/warnings.component';
 
 import { AlarmComponent } from './alarm/alarm.component';
 import { AlarmInfoComponent } from './alarm/alarm.info.component';
