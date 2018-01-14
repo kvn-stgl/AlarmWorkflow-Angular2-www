@@ -35,7 +35,7 @@ export class WeatherComponent implements OnInit  {
   }
 
   getForecast(): void {
-    this.weatherService.getWeather().subscribe(result => {
+    this.weatherService.getWeather().then(result => {
       let tmp = result.forecast.simpleforecast.forecastday.slice(0, 3);
       this.forecast = tmp;
     });

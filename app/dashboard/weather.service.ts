@@ -23,10 +23,11 @@ export class WeatherService {
     return this.city;
   }
 
-  getWeather(): Observable<any>{
+  getWeather(): Promise<any>{
     let url = this.baseUrl + this.apiKey + '/forecast/' + this.lang + '/q/' + this.city + '.json';
     return this.http.get(url)
-      .map(response => response.json())
+      .toPromise()
+      .then(response => response.json())
       .catch(this.handleError);
   }
 
@@ -40,6 +41,6 @@ export class WeatherService {
       errMsg = error.message ? error.message : error.toString();
     //}
     console.error(errMsg);
-    return Observable.throw(errMsg);
+    return Promise.reject(errMsg);
   }
 }

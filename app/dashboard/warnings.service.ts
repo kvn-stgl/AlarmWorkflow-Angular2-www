@@ -11,9 +11,10 @@ export class WarningsService {
 
   constructor(private http: Http) {}
 
-  getWarning(): Observable < any > {
+  getWarning(): Promise < any > {
     return this.http.get(this.baseUrl)
-      .map(response => this.extractData(response))
+      .toPromise()
+      .then(response => this.extractData(response))
       .catch(this.handleError);
   }
 
@@ -74,6 +75,6 @@ export class WarningsService {
     errMsg = error.message ? error.message : error.toString();
     // }
     console.error(errMsg);
-    return Observable.throw(errMsg);
+    return Promise.reject(errMsg);
   }
 }

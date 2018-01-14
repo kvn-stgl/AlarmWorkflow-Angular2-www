@@ -37,11 +37,12 @@ export class AppConfig {
       return new Promise((resolve, reject) => {
         this.http.get(devUrl + '/api/settings/Shared')
           .map(res => res.json())
+          .toPromise()
           .catch((error: any): any => {
             console.log('Configuration file "api/settings/Shared" could not be read');
             resolve(true);
             return Observable.throw(error.json().error || 'Server error');
-          }).subscribe((responseDataShared) => {
+          }).then((responseDataShared) => {
             this.configShared = responseDataShared;
 
             this.http.get(devUrl + '/api/settings/WebService')

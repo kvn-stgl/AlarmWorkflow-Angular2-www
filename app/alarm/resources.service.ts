@@ -10,9 +10,10 @@ export class ResourcesService {
 
   constructor(private http: Http) {}
 
-  getResources(id: number): Observable < any > {
+  getResources(id: number): Promise < any > {
     return this.http.get(this.baseUrl + id)
-      .map(response => this.extractData(response))
+      .toPromise()
+      .then(response => this.extractData(response))
       .catch(this.handleError);
   }
 
@@ -35,6 +36,6 @@ export class ResourcesService {
     errMsg = error.message ? error.message : error.toString();
     //}
     console.error(errMsg);
-    return Observable.throw(errMsg);
+    return Promise.reject(errMsg);
   }
 }

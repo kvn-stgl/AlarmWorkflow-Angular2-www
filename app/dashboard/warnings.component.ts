@@ -5,7 +5,7 @@ import { WarningsService } from './warnings.service';
 
 const intervalTime: number = 1000 * 60 * 30; //Update warnings every 30 mins
 
-@Component({  
+@Component({
   selector: 'aw-warnings',
   templateUrl: 'html/warnings.component.html',
   styleUrls: [ 'css/warnings.component.css' ]
@@ -18,12 +18,12 @@ export class WarningsComponent implements OnInit  {
 
   ngOnInit(): void {
     this.getWarnings();
-    
-    this.intervalId = setInterval(() => {  
+
+    this.intervalId = setInterval(() => {
       this.getWarnings()
     }, intervalTime);
   }
-    
+
   ngOnDestroy() {
     if(this.intervalId) {
       clearInterval(this.intervalId);
@@ -31,7 +31,7 @@ export class WarningsComponent implements OnInit  {
   }
 
   getWarnings() {
-    this.WarningsService.getWarning().subscribe(result => {
+    this.WarningsService.getWarning().then(result => {
       this.warning = result;
     });
   }

@@ -31,6 +31,6 @@ export class ResourcesComponent implements OnChanges, OnInit {
   }
 
   private loadResources() {
-    this.resourcesService.getResources(this.operation.id).subscribe((resources) => this.resources = resources);
+    this.resourcesService.getResources(this.operation.id).then((resources) => this.resources = resources);
   }
 }
