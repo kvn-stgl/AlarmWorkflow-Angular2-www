@@ -32,10 +32,12 @@ import { OperationService } from './operation.service';
 
 import { UcFirstPipe } from './pipes/ucfirst.pipe';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { SignalrWindow } from './signalr';
 
 (window as SignalrWindow).$.connection.hub.url = devUrl + '/signalr';
+
+declare const googleMapsApiKey: string;
 
 function initConfig(config: AppConfig) {
  return () => config.load();
@@ -48,7 +50,7 @@ function initConfig(config: AppConfig) {
     HttpModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: ''
+      apiKey: googleMapsApiKey
     })
   ],
   declarations: [

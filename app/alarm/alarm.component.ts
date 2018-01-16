@@ -7,6 +7,8 @@ import { Operation } from '../operation';
 
 import '../rxjs-extensions';
 
+declare const alarmLogo: string;
+
 @Component({
   selector: 'aw-alarm',
   templateUrl: 'html/alarm.component.html',
@@ -17,6 +19,7 @@ export class AlarmComponent implements OnInit, OnDestroy {
   operation: Operation;
   private timeoutId: any;
   private timeoutTime: number;
+  private logo: string;
 
   constructor(private router: Router,
     private route: ActivatedRoute,
@@ -26,6 +29,8 @@ export class AlarmComponent implements OnInit, OnDestroy {
     }
 
   ngOnInit(): void {
+    this.logo = alarmLogo;
+
     this.route.params
       .switchMap((params: Params) => this.operationService.getOperation(+params['id']))
       .subscribe(operation => {
