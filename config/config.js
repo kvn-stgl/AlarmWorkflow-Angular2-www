@@ -11,9 +11,9 @@ var googleMapsApiKey = "";
 /**
  * Logo for the dashboard
  */
-var dashboardLogo = "images/FFW-Logo.svg";
+var dashboardLogo = "images/ffw-logo.gif";
 
 /**
  * Logo for the alarm
  */
-var alarmLogo = "images/FFW-Logo.svg";
+var alarmLogo = "images/ffw-logo.gif";
