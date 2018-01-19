@@ -1,7 +1,7 @@
 {
-    "name": "angular-quickstart",
+    "name": "alarmWorkflow-alarmmonitor",
     "version": "1.0.0",
-    "description": "QuickStart package.json from the documentation, supplemented with testing support",
+    "description": "AlarmMonitor as Angular2 Website for AlarmWorkflow",
     "scripts": {
         "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
         "lint": "tslint ./app/**/*.ts -t verbose",
@@ -37,7 +37,7 @@
     "devDependencies": {
         "concurrently": "~3.3.0",
         "lite-server": "^2.2.2",
-        "typescript": "~2.2",
+        "typescript": "~2.6",
         "canonical-path": "0.0.2",
         "tslint": "~4.4",
         "lodash": "~4.17",
